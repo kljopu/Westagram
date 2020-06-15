@@ -16,14 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from bbs.views import hello, ArticleListView, ArticleDetailView, ArticleCreateUpdateView
-
+from user.views import UserRegistrationView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('hello/<to>', hello),
 
+    # article path
     path('article/', ArticleListView.as_view()),
     path('article/create/', ArticleCreateUpdateView.as_view()),
     path('article/<article_id>/', ArticleDetailView.as_view()),
     path('article/<article_id>/update/', ArticleCreateUpdateView.as_view()),
+
+    # user path
+    path('user/create/', UserRegistrationView.as_view()),
+    
 ]

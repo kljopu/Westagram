@@ -1,3 +1,4 @@
+import hashlib
 # def get_prefix(string):
 #     if len(string) == 0:
 #         return ''
@@ -20,36 +21,34 @@
 # print(get_prefix(string))
 
 
-def romanToNum(s):
-    result=1
-    num_list = ['I','V','X','L','C','D','M','IV','IX','XL','XC','CD','CM']
-    for i in  num_list:
-        if i = 'I':
-            count_i = 0
+class MySet:
+  def __init__(self, size):
+    self.size = size
+    self.bucket = [ None for x in range(size) ]
+
+  def values(self):
+    set_data =""
+    for i in range(self.size):
+      if self.bucket[i] != None:
+        set_data += self.bucket[i]
+        set_data += ", "
+    if set_data[-1] == " ":
+      data_set = set_data[:-2]
+    return data_set
+
+  # 1. hash_value 함수
+  def hash_value(self,key):
+    hash_value = hashlib.sha1(key.encode())
+    # hash_dig = hash_value.hexdigest()
+    # hash_value = hash_obj.hexdigest()
+    print(hash_value)
+
     
-    
+  
+  # 2. add 함수
+#   def add(self, key):
+#     hash_value = self.hash_value(key)
+    # 여기서 부터 구현
+pr = MySet(16)
 
-s = 'CD'
-
-print(romanToNum(s))
-
-# for i in num_list:
-        
-#         if i in s:
-            
-            # I= 1
-            # V= 5
-            # X= 10
-            # L= 50
-            # C= 100
-            # D= 500
-            # M= 1000
-
-            # IV = 4
-            # IX =9
-            # XL = 4
-            # XC =90
-            # CD = 400
-            # CM = 900
-            # print(i)
-    # return result
+pr.hash_value('wecode')
