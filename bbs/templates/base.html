@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {% block title %}
+    <title>Base</title>
+    {% endblock title %}
+    {% block meta %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% endblock meta %}
+
+    {% block css %}
+    {% endblock css %}
+    
+    {% block script %}
+    {% endblock script %}
+    
+
+</head>
+<body>
+    {% block header %}
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/article/">게시글 목록</a>
+            </div>
+        </div>
+    </nav>
+    {% endblock header %}
+
+    {% block content %}
+    {% endblock content %}
+
+
+    {% block jquery %}
+    {% endblock jquery %}
+</body>
+</html>

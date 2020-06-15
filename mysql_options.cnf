@@ -1,0 +1,5 @@
+[client]
+database = TEST
+host = localhost
+user = kyle
+password = wnsepddl123

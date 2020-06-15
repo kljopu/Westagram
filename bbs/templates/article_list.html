@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'animate/animate.css' %}">
+<link rel="stylesheet" href="{% static 'select2/select2.min.css' %}">
+<link rel="stylesheet" href="{% static 'perfect-scrollbar/perfect-scrollbar.css' %}">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock css %}
+
+{% block title %}
+<title> 게시글 목록</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="limiter">
+    
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <a href="create/"><button class="btn btn-primary" type="button" style="margin-bottom: 10px;">Add Article</button></a>
+                <div class="table">
+
+                    <div class="row header">
+                        <div class="cell">
+                            No
+                        </div>
+                        <div class="cell">
+                            Author
+                        </div>
+                        <div class="cell">
+                            Title
+                        </div>
+                        <div class="cell">
+                            Content
+                        </div>
+                    </div>
+
+                    <!-- for start -->
+                    {% for article in articles %}
+                    <div class="row" onclick="location.href='/article/{{ article.pk }}/'">
+                        <div class="cell" data-title="Full Name">
+                            {{ article.pk }}
+                        </div>
+                        <div class="cell" data-title="Age">
+                            {{ article.author }}
+                        </div>
+                        <div class="cell" data-title="Job Title">
+                            {{ article.title }}
+                        </div>
+                        <div class="cell" data-title="Location">
+                            {{ article.content }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <!-- for end -->
+
+
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
